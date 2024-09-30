@@ -1,33 +1,50 @@
+/* Slider Container */
 #sliders {
   height: 400px;
   width: 60%;
   overflow: hidden;
   margin: 0 auto;
   position: relative;
+  border-radius: 15px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
 }
 
+/* Gallery Header */
 .gallery-header {
   display: none;
 }
 
+/* Slider Items */
 .slider-item {
   display: none;
+  transition: opacity 0.5s ease-in-out;
 }
 
+/* Selected Thumbnail */
 .img-thumbnail {
   cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.img-thumbnail:hover {
+  transform: scale(1.05);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .added {
   border: 2px solid #1e1743;
   border-radius: 5px;
+  box-shadow: 0 0 10px rgba(30, 23, 67, 0.7);
 }
 
+/* Slider Image */
 img {
   height: 400px;
   object-fit: cover;
+  border-radius: 15px;
 }
 
+/* Navigation Buttons (Previous and Next) */
 .prev-next {
   position: absolute;
   top: 50%;
@@ -37,30 +54,58 @@ img {
 }
 
 .prev, .next {
-  background-color: transparent;
-  padding: 8px 10px;
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 10px 15px;
+  border-radius: 50%;
   color: #fff;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+  transition: background-color 0.3s ease;
 }
 
+.prev:hover, .next:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+/* Dots for Navigation */
 .dot {
   background-color: rgb(163, 156, 156);
-  height: 10px;
-  width: 10px;
+  height: 12px;
+  width: 12px;
   border-radius: 50%;
   cursor: pointer;
-  margin: 0 3px;
+  margin: 0 5px;
+  transition: background-color 0.3s ease;
 }
 
+.dot.active, .dot:hover {
+  background-color: #1e1743;
+}
+
+/* Main Container for the Slider */
 .main {
   display: none;
+  text-align: center;
+  margin-top: 30px;
 }
 
+/* Responsive Adjustments */
 @media (max-width: 767px) {
-  .justify-content-around.align-items-center.mt-3.gallery-header.mb-2 {
+  .gallery-header {
     flex-direction: column;
+    display: flex;
   }
+
   #sliders {
     height: 300px;
     width: 90%;
+  }
+
+  .prev, .next {
+    font-size: 1.2rem;
+    padding: 8px 12px;
   }
 }
